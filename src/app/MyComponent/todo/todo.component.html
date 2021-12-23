@@ -1,0 +1,10 @@
+<div class="col-md-8 mx-auto"><app-add-todo (todoAdd)= "addTodo($event)"></app-add-todo></div>
+<hr>
+<h4 class="text-center">Your Todos</h4>
+<hr>
+<div *ngIf="this.todos.length == 0; else elseBlock">No Todos To display</div>
+<ng-template #elseBlock>
+<div *ngFor="let todo of todos" class="mx-5">
+    <app-todo-item [todo] = "todo"(todoDelete)= "deleteTodo($event)" ></app-todo-item>
+</div>
+</ng-template>
